@@ -12,7 +12,7 @@ def main():
 def zadej_soubor(mesta_seznam):
 # vytvori soubor
 
-    soubor = input('Zadej nazev souboru: ').strip()
+    soubor = input('Zadej nazev souboru pro ulozeni vysledku z uvedeného odkazu (napr: ''volby''): ').strip()
     adresa = 'https://www.volby.cz/pls/ps2017nss/' + mesta_seznam[0][2]
 
     hlavicka_info = pridej_info(adresa)
@@ -33,7 +33,8 @@ def zadej_soubor(mesta_seznam):
 def pridej_mesta():
 # vycteni informaci podle zadane adresy
 
-    adresa = input('Zadej odkaz s vysledky voleb pozadovaneho okresu: ').strip()
+    print('Uvedeny link na stazeni volebnich vysledku: ','https://volby.cz/pls/ps2017nss/ps3?xjazyk=CZ')
+    adresa =  ('https://volby.cz/pls/ps2017nss/ps3?xjazyk=CZ').strip()
     info = pridej_info(adresa)
 
     mesta_pocet = pridej_mesta_pocet(info)
@@ -58,7 +59,9 @@ def pridej_info(adresa):
 def pridej_mesta_pocet(info_para):
 # generovani uzemi
 
-    dalsi_prvky = pridej_dalsi_prvky(info_para, 't1sa1 t1sb1', 't2sa1 t2sb1')
+    dalsi_prvky = pridej_dalsi_prvky(info_para, 't1sa1 t1sb1', 't2sa1 t2sb1', 't3sa1 t3sb1','t4sa1 t4sb1','t5sa1 t5sb1'
+                                     ,'t6sa1 t6sb1','t7sa1 t7sb1','t8sa1 t8sb1','t9sa1 t9sb1','t10sa1 t10sb1','t11sa1 t11sb1'
+                                     ,'t12sa1 t12sb1','t13sa1 t13sb1','t14sa1 t14sb1')
     dalsi_pocet = []
 
     for dalsi in dalsi_prvky:
@@ -70,14 +73,18 @@ def pridej_mesta_pocet(info_para):
 
 def pridej_jmena_mest(info_para):
 # nacteni mest
-    dalsi_prvky = pridej_dalsi_prvky(info_para, 't1sa1 t1sb2', 't2sa1 t2sb2')
+    dalsi_prvky = pridej_dalsi_prvky(info_para, 't1sa1 t1sb2', 't2sa1 t2sb2', 't3sa1 t3sb2','t4sa1 t4sb2','t5sa1 t5sb2'
+                                     ,'t6sa1 t6sb2','t7sa1 t7sb2','t8sa1 t8sb2','t9sa1 t9sb2','t10sa1 t10sb2','t11sa1 t11sb2'
+                                     ,'t12sa1 t12sb2','t13sa1 t13sb2','t14sa1 t14sb2')
     return [dalsi.text for dalsi in dalsi_prvky]
 
 
 def pridej_adresy_mest(info_para):
 # vytrideni mest na umistneni
 
-    dalsi_prvky = pridej_dalsi_prvky(info_para, 't1sa1 t1sb1', 't2sa1 t2sb1')
+    dalsi_prvky = pridej_dalsi_prvky(info_para, 't1sa1 t1sb1', 't2sa1 t2sb1', 't3sa1 t3sb1','t4sa1 t4sb1','t5sa1 t5sb1'
+                                     ,'t6sa1 t6sb1','t7sa1 t7sb1','t8sa1 t8sb1','t9sa1 t9sb1','t10sa1 t10sb1','t11sa1 t11sb1'
+                                     ,'t12sa1 t12sb1','t13sa1 t13sb1','t14sa1 t14sb1')
     dalsi_adresy = []
 
     for dalsi in dalsi_prvky:
@@ -143,4 +150,3 @@ def pridej_hlasy(info_para):
     return seznam_hlasu
 
 main()
-
